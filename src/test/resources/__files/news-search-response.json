@@ -1,0 +1,114 @@
+{
+    "response": {
+        "status": "ok",
+        "userTier": "developer",
+        "total": 30976,
+        "startIndex": 1,
+        "pageSize": 10,
+        "currentPage": 1,
+        "pages": 3098,
+        "orderBy": "relevance",
+        "results": [
+            {
+                "type": "article",
+                "sectionId": "commentisfree",
+                "webTitle": "VW’s ‘neat hack’ exposes danger of corporate software | John Naughton",
+                "webPublicationDate": "2015-10-04T06:00:10Z",
+                "id": "commentisfree/2015/oct/04/vw-neat-hack-danger-corporate-software",
+                "webUrl": "http://www.theguardian.com/commentisfree/2015/oct/04/vw-neat-hack-danger-corporate-software",
+                "apiUrl": "http://content.guardianapis.com/commentisfree/2015/oct/04/vw-neat-hack-danger-corporate-software",
+                "sectionName": "Comment is free"
+            },
+            {
+                "type": "article",
+                "sectionId": "business",
+                "webTitle": "VW software scandal: chief apologises for breaking public trust",
+                "webPublicationDate": "2015-09-20T15:33:14Z",
+                "id": "business/2015/sep/20/vw-software-scandal-chief-apologises-for-breaking-public-trust",
+                "webUrl": "http://www.theguardian.com/business/2015/sep/20/vw-software-scandal-chief-apologises-for-breaking-public-trust",
+                "apiUrl": "http://content.guardianapis.com/business/2015/sep/20/vw-software-scandal-chief-apologises-for-breaking-public-trust",
+                "sectionName": "Business"
+            },
+            {
+                "type": "article",
+                "sectionId": "society",
+                "webTitle": "How ad-blocking software could revolutionise disabled people’s lives | Anna Bawden",
+                "webPublicationDate": "2015-09-30T07:30:07Z",
+                "id": "society/2015/sep/30/ad-blocking-software-revolutionise-disabled-lives",
+                "webUrl": "http://www.theguardian.com/society/2015/sep/30/ad-blocking-software-revolutionise-disabled-lives",
+                "apiUrl": "http://content.guardianapis.com/society/2015/sep/30/ad-blocking-software-revolutionise-disabled-lives",
+                "sectionName": "Society"
+            },
+            {
+                "type": "article",
+                "sectionId": "business",
+                "webTitle": "Volkswagen scandal: Australia unable to confirm cars have test-cheating software",
+                "webPublicationDate": "2015-09-25T08:46:34Z",
+                "id": "business/2015/sep/25/volkswagen-scandal-australia-unable-to-confirm-cars-have-test-cheating-software",
+                "webUrl": "http://www.theguardian.com/business/2015/sep/25/volkswagen-scandal-australia-unable-to-confirm-cars-have-test-cheating-software",
+                "apiUrl": "http://content.guardianapis.com/business/2015/sep/25/volkswagen-scandal-australia-unable-to-confirm-cars-have-test-cheating-software",
+                "sectionName": "Business"
+            },
+            {
+                "type": "article",
+                "sectionId": "technology",
+                "webTitle": "iOS 9 review: an upgrade to jump for, or skip?",
+                "webPublicationDate": "2015-09-15T07:00:11Z",
+                "id": "technology/2015/sep/15/apple-ios-9-review-iphone-ipad-software-better-battery-life-multitasking-siri",
+                "webUrl": "http://www.theguardian.com/technology/2015/sep/15/apple-ios-9-review-iphone-ipad-software-better-battery-life-multitasking-siri",
+                "apiUrl": "http://content.guardianapis.com/technology/2015/sep/15/apple-ios-9-review-iphone-ipad-software-better-battery-life-multitasking-siri",
+                "sectionName": "Technology"
+            },
+            {
+                "type": "article",
+                "sectionId": "technology",
+                "webTitle": "Software upgrade grounds hundreds of flights over US east coast",
+                "webPublicationDate": "2015-08-17T09:49:21Z",
+                "id": "technology/2015/aug/17/air-traffic-control-software-upgrade-grounds-hundreds-of-flights-us-east-coast",
+                "webUrl": "http://www.theguardian.com/technology/2015/aug/17/air-traffic-control-software-upgrade-grounds-hundreds-of-flights-us-east-coast",
+                "apiUrl": "http://content.guardianapis.com/technology/2015/aug/17/air-traffic-control-software-upgrade-grounds-hundreds-of-flights-us-east-coast",
+                "sectionName": "Technology"
+            },
+            {
+                "type": "article",
+                "sectionId": "technology",
+                "webTitle": "Jeep owners urged to update their cars after hackers take remote control",
+                "webPublicationDate": "2015-07-21T14:30:10Z",
+                "id": "technology/2015/jul/21/jeep-owners-urged-update-car-software-hackers-remote-control",
+                "webUrl": "http://www.theguardian.com/technology/2015/jul/21/jeep-owners-urged-update-car-software-hackers-remote-control",
+                "apiUrl": "http://content.guardianapis.com/technology/2015/jul/21/jeep-owners-urged-update-car-software-hackers-remote-control",
+                "sectionName": "Technology"
+            },
+            {
+                "type": "article",
+                "sectionId": "education",
+                "webTitle": "Teachers and parents criticise ‘robotic’ software-generated school reports",
+                "webPublicationDate": "2015-07-17T07:00:03Z",
+                "id": "education/2015/jul/17/teachers-parents-criticise-robotic-software-generated-school-reports",
+                "webUrl": "http://www.theguardian.com/education/2015/jul/17/teachers-parents-criticise-robotic-software-generated-school-reports",
+                "apiUrl": "http://content.guardianapis.com/education/2015/jul/17/teachers-parents-criticise-robotic-software-generated-school-reports",
+                "sectionName": "Education"
+            },
+            {
+                "type": "article",
+                "sectionId": "technology",
+                "webTitle": "Security flaw found in school internet monitoring software",
+                "webPublicationDate": "2015-07-14T16:32:56Z",
+                "id": "technology/2015/jul/14/security-flaw-found-in-school-internet-monitoring-software",
+                "webUrl": "http://www.theguardian.com/technology/2015/jul/14/security-flaw-found-in-school-internet-monitoring-software",
+                "apiUrl": "http://content.guardianapis.com/technology/2015/jul/14/security-flaw-found-in-school-internet-monitoring-software",
+                "sectionName": "Technology"
+            },
+            {
+                "type": "article",
+                "sectionId": "business",
+                "webTitle": "NYSE shutdown caused by engineers loading wrong software to system",
+                "webPublicationDate": "2015-07-09T18:38:48Z",
+                "id": "business/2015/jul/09/nyse-shutdown-cause-engineers-wrong-software",
+                "webUrl": "http://www.theguardian.com/business/2015/jul/09/nyse-shutdown-cause-engineers-wrong-software",
+                "apiUrl": "http://content.guardianapis.com/business/2015/jul/09/nyse-shutdown-cause-engineers-wrong-software",
+                "sectionName": "Business"
+            }
+        ]
+    }
+}
