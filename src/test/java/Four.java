@@ -42,4 +42,15 @@ public class Four {
 
         assertThat(headline, containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
     }
+
+    @Test
+    public void body_builders() throws Exception {
+        newsService.postNewArticle("PHP programmer releases tool to make tests pass when CI server detected");
+
+        wm.verify(postRequestedFor(urlEqualTo("/articles"))
+                .withRequestBody(equalToJson(
+                        newsItem()
+                            .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
+                            .buildJson())));
+    }
 }

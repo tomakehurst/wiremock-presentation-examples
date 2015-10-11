@@ -8,7 +8,7 @@ public class NewsItemBuilder {
     
     private String type = "article";
     private String webTitle = "";
-    private String webPublicationDate = Instant.now().toString();
+    private String webPublicationDate = "2015-10-05T06:00:10Z";
 
     public static NewsItemBuilder newsItem() {
         return new NewsItemBuilder();
