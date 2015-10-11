@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class Two {
+public class RecordPlayback {
 
     @Rule
     public WireMockRule wm = new WireMockRule();
@@ -29,7 +29,8 @@ public class Two {
     public void using_recorded_data() {
         String headline = newsService.getFirstSoftwareHeadline();
 
-        assertThat(headline, containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
+        assertThat(headline,
+                containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
     }
 
 }

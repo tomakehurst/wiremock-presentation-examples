@@ -9,11 +9,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
-public class Four {
+public class DataBuilders {
 
     @Rule
     public WireMockRule wm = new WireMockRule();
-//    public WireMockRule wm = new WireMockRule(wireMockConfig().notifier(new ConsoleNotifier(true)));
 
     NewsService newsService;
 
@@ -31,13 +30,15 @@ public class Four {
                         .withBody(
                                 newsSearchResults()
                                         .withItem(newsItem()
-                                                .withWebTitle("VW’s ‘neat hack’ exposes danger of corporate software"))
+                                                .withWebTitle(
+                                                    "VW’s ‘neat hack’ exposes danger of corporate software"))
                                         .buildJson()
                         )));
 
         String headline = newsService.getFirstSoftwareHeadline();
 
-        assertThat(headline, containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
+        assertThat(headline,
+                containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
     }
 
     @Test

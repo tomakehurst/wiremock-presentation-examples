@@ -14,7 +14,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN_TYPE;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class Six {
+public class DynamicPorts {
 
     @Rule
     public WireMockRule wm = new WireMockRule(wireMockConfig()

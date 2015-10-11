@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-public class Seven {
+public class FaultInjection {
 
     @Rule
     public WireMockRule wm = new WireMockRule();
@@ -34,7 +34,8 @@ public class Seven {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(NewsServiceException.class));
-            assertThat(e.getCause().getMessage(), containsString("Unexpected end of file"));
+            assertThat(e.getCause().getMessage(),
+                    containsString("Unexpected end of file"));
         }
     }
 }

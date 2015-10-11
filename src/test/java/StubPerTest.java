@@ -7,7 +7,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
-public class Three {
+public class StubPerTest {
 
     @Rule
     public WireMockRule wm = new WireMockRule();
@@ -29,6 +29,6 @@ public class Three {
 
         String headline = newsService.getFirstSoftwareHeadline();
 
-        assertThat(headline, containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
+        assertThat(headline, containsString("VW’s ‘neat hack’"));
     }
 }

@@ -13,7 +13,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN_TYPE;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class One {
+public class HelloWorld {
 
     @Rule
     public WireMockRule wm = new WireMockRule();
@@ -34,7 +34,8 @@ public class One {
 
         Response response = client.target("http://localhost:8080/quotes/1").request().get();
 
-        assertThat(response.readEntity(String.class), is("I've suffered for my art...now it's your turn!"));
+        assertThat(response.readEntity(String.class),
+                is("I've suffered for my art...now it's your turn!"));
     }
 
     @Test
@@ -42,7 +43,8 @@ public class One {
         wm.stubFor(post(urlEqualTo("/quotes")).willReturn(aResponse().withStatus(200)));
 
         client.target("http://localhost:8080/quotes").request().post(
-                entity("Some cause happiness wherever they go; others, whenever they go.", TEXT_PLAIN_TYPE));
+                entity("Some cause happiness wherever they go; others, whenever they go.",
+                        TEXT_PLAIN_TYPE));
 
         wm.verify(postRequestedFor(urlEqualTo("/quotes"))
                 .withRequestBody(containing("Some cause happiness wherever they go")));
