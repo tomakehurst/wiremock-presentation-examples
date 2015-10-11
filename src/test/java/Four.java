@@ -1,14 +1,11 @@
-import builders.NewsSearchResultBuilder;
-import com.github.tomakehurst.wiremock.common.ConsoleNotifier;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static builders.NewsItemBuilder.newsItem;
-import static builders.NewsSearchResultBuilder.newsSearchResults;
+import static stubbing.NewsItemBuilder.newsItem;
+import static stubbing.NewsSearchResultBuilder.newsSearchResults;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
@@ -50,7 +47,7 @@ public class Four {
         wm.verify(postRequestedFor(urlEqualTo("/articles"))
                 .withRequestBody(equalToJson(
                         newsItem()
-                            .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
-                            .buildJson())));
+                                .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
+                                .buildJson())));
     }
 }

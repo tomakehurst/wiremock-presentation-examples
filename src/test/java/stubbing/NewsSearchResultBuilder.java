@@ -1,4 +1,4 @@
-package builders;
+package stubbing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

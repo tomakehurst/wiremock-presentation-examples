@@ -1,32 +1,43 @@
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import org.glassfish.jersey.client.JerseyClient;
-import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import stubbing.NewsRestServiceStub;
 
-import javax.ws.rs.core.Response;
-
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static javax.ws.rs.client.Entity.entity;
-import static javax.ws.rs.core.MediaType.TEXT_PLAIN_TYPE;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
+import static stubbing.NewsItemBuilder.newsItem;
+import static stubbing.NewsSearchResultBuilder.newsSearchResults;
 
 public class Five {
 
     @Rule
-    public WireMockRule wm = new WireMockRule(wireMockConfig()
-                                                .dynamicPort()
-                                                .dynamicHttpsPort());
+    public NewsRestServiceStub newsServiceStub = new NewsRestServiceStub();
+
+    NewsService newsService;
 
     @Before
     public void init() {
-        // Override configuration in your app under test
-        System.setProperty("newsstub.http.port",  String.valueOf(wm.port()));
-        System.setProperty("newsstub.https.port", String.valueOf(wm.httpsPort()));
+        newsService = new NewsService();
+    }
 
-        // Then start your app under test...
+    @Test
+    public void stubbing_via_serivce_wrapper() throws Exception {
+        newsServiceStub.searchStub("software",
+                newsSearchResults()
+                        .withItem(newsItem()
+                                .withWebTitle("VW’s ‘neat hack’ exposes danger of corporate software")));
+
+        String headline = newsService.getFirstSoftwareHeadline();
+
+        assertThat(headline, containsString("VW’s ‘neat hack’ exposes danger of corporate software"));
+    }
+
+    @Test
+    public void body_builders_to_service_wrapper() throws Exception {
+        newsService.postNewArticle("PHP programmer releases tool to make tests pass when CI server detected");
+
+        newsServiceStub.verifyArticlePosted(newsItem()
+                        .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
+        );
     }
 }

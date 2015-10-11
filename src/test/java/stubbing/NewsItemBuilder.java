@@ -1,8 +1,6 @@
-package builders;
+package stubbing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.time.Instant;
 
 public class NewsItemBuilder {
     

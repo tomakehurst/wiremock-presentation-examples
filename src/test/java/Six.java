@@ -1,40 +1,32 @@
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import org.glassfish.jersey.client.JerseyClient;
+import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import javax.ws.rs.ProcessingException;
+import javax.ws.rs.core.Response;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.github.tomakehurst.wiremock.http.Fault.EMPTY_RESPONSE;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.instanceOf;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static javax.ws.rs.client.Entity.entity;
+import static javax.ws.rs.core.MediaType.TEXT_PLAIN_TYPE;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 public class Six {
 
     @Rule
-    public WireMockRule wm = new WireMockRule();
-
-    NewsService newsService;
+    public WireMockRule wm = new WireMockRule(wireMockConfig()
+                                                .dynamicPort()
+                                                .dynamicHttpsPort());
 
     @Before
     public void init() {
-        newsService = new NewsService();
-    }
+        // Override configuration in your app under test
+        System.setProperty("newsstub.http.port",  String.valueOf(wm.port()));
+        System.setProperty("newsstub.https.port", String.valueOf(wm.httpsPort()));
 
-    @Test
-    public void premature_socket_closure_fault() throws Exception {
-        wm.stubFor(get(urlPathEqualTo("/search"))
-                .willReturn(aResponse().withFault(EMPTY_RESPONSE)));
-
-        try {
-            newsService.getFirstSoftwareHeadline();
-            fail();
-        } catch (Exception e) {
-            assertThat(e, instanceOf(ProcessingException.class));
-            assertThat(e.getMessage(), containsString("Unexpected end of file"));
-        }
+        // Then start your app under test...
     }
 }
