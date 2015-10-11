@@ -2,8 +2,7 @@ import com.jayway.jsonpath.JsonPath;
 import org.glassfish.jersey.client.JerseyClient;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ProcessingException;
 import javax.ws.rs.core.Response;
 
 import static javax.ws.rs.client.Entity.entity;
@@ -19,12 +18,16 @@ public class NewsService {
     }
 
     public String getFirstSoftwareHeadline() {
-        Response response = client.target("http://localhost:8080/search?api-key=test&q=software")
-                .request()
-                .get();
-        String body = response.readEntity(String.class);
+        try {
+            Response response = client.target("http://localhost:8080/search?api-key=test&q=software")
+                    .request()
+                    .get();
+            String body = response.readEntity(String.class);
 
-        return JsonPath.read(body, "$.response.results[0].webTitle");
+            return JsonPath.read(body, "$.response.results[0].webTitle");
+        } catch (ProcessingException e) {
+            throw new NewsServiceException("Error while retrieving news", e);
+        }
     }
 
     public void postNewArticle(String webTitle) {

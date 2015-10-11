@@ -33,8 +33,8 @@ public class Seven {
             newsService.getFirstSoftwareHeadline();
             fail();
         } catch (Exception e) {
-            assertThat(e, instanceOf(ProcessingException.class));
-            assertThat(e.getMessage(), containsString("Unexpected end of file"));
+            assertThat(e, instanceOf(NewsServiceException.class));
+            assertThat(e.getCause().getMessage(), containsString("Unexpected end of file"));
         }
     }
 }
