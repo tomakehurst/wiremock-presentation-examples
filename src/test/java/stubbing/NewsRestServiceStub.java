@@ -23,7 +23,7 @@ public class NewsRestServiceStub extends ExternalResource {
         wm.stop();
     }
 
-    public void searchStub(String query, NewsSearchResultBuilder searchResultBuilder) throws Exception {
+    public void createSearchStub(String query, NewsSearchResultBuilder searchResultBuilder) throws Exception {
         wm.stubFor(get(urlPathEqualTo("/search"))
                 .withQueryParam("api-key", equalTo("test"))
                 .withQueryParam("q",       equalTo(query))

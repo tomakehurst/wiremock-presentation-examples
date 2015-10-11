@@ -21,8 +21,8 @@ public class Five {
     }
 
     @Test
-    public void stubbing_via_serivce_wrapper() throws Exception {
-        newsServiceStub.searchStub("software",
+    public void stubbing_via_service_wrapper() throws Exception {
+        newsServiceStub.createSearchStub("software",
                 newsSearchResults()
                         .withItem(newsItem()
                                 .withWebTitle("VW’s ‘neat hack’ exposes danger of corporate software")));
