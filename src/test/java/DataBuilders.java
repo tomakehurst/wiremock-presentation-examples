@@ -24,16 +24,16 @@ public class DataBuilders {
     @Test
     public void using_stub_data_builders() throws Exception {
         wm.stubFor(get(urlPathEqualTo("/search"))
-                .withQueryParam("api-key", equalTo("test"))
-                .withQueryParam("q",       equalTo("software"))
-                .willReturn(aResponse()
-                        .withBody(
-                                newsSearchResults()
-                                        .withItem(newsItem()
-                                                .withWebTitle(
-                                                    "VW’s ‘neat hack’ exposes danger of corporate software"))
-                                        .buildJson()
-                        )));
+            .withQueryParam("api-key", equalTo("test"))
+            .withQueryParam("q",       equalTo("software"))
+            .willReturn(aResponse()
+                .withBody(
+                    newsSearchResults()
+                        .withItem(newsItem()
+                            .withWebTitle(
+                                "VW’s ‘neat hack’ exposes danger of corporate software"))
+                            .buildJson()
+                    )));
 
         String headline = newsService.getFirstSoftwareHeadline();
 
@@ -46,9 +46,9 @@ public class DataBuilders {
         newsService.postNewArticle("PHP programmer releases tool to make tests pass when CI server detected");
 
         wm.verify(postRequestedFor(urlEqualTo("/articles"))
-                .withRequestBody(equalToJson(
-                        newsItem()
-                                .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
-                                .buildJson())));
+            .withRequestBody(equalToJson(
+                newsItem()
+                    .withWebTitle("PHP programmer releases tool to make tests pass when CI server detected")
+                    .buildJson())));
     }
 }

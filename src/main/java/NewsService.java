@@ -22,6 +22,11 @@ public class NewsService {
             Response response = client.target("http://localhost:8080/search?api-key=test&q=software")
                     .request()
                     .get();
+
+            if (response.getStatus() != 200) {
+                throw new NewsServiceException("Status " + response.getStatus() + " returned when fetching news item");
+            }
+
             String body = response.readEntity(String.class);
 
             return JsonPath.read(body, "$.response.results[0].webTitle");
