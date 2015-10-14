@@ -24,7 +24,8 @@ public class NewsService {
                     .get();
 
             if (response.getStatus() != 200) {
-                throw new NewsServiceException("Status " + response.getStatus() + " returned when fetching news item");
+                throw new NewsServiceException("Status " + response.getStatus() +
+                        " returned when fetching news item");
             }
 
             String body = response.readEntity(String.class);
