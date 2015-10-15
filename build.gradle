@@ -12,6 +12,7 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.2'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.2'
     compile 'com.jayway.jsonpath:json-path:2.0.0'
+    compile 'org.shamdata:sham:0.3'
 
     testCompile 'junit:junit:4.12'
     testCompile "org.hamcrest:hamcrest-all:1.3"
