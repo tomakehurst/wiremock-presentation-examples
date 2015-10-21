@@ -12,14 +12,20 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 public class NewsService {
 
     private final JerseyClient client;
+    private final int port;
+
+    public NewsService(int port) {
+        client = JerseyClientBuilder.createClient();
+        this.port = port;
+    }
 
     public NewsService() {
-        client = JerseyClientBuilder.createClient();
+        this(8080);
     }
 
     public String getFirstSoftwareHeadline() {
         try {
-            Response response = client.target("http://localhost:8080/search?api-key=test&q=software")
+            Response response = client.target("http://localhost:" + port + "/search?api-key=test&q=software")
                     .request()
                     .get();
 
@@ -37,7 +43,7 @@ public class NewsService {
     }
 
     public void postNewArticle(String webTitle) {
-        client.target("http://localhost:8080/articles")
+        client.target("http://localhost:" + port + "/articles")
                 .request()
                 .post(entity("{\n" +
                         "    \"type\": \"article\",\n" +
